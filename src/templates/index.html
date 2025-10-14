@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}GruPy VCA - Comunidade Python de Vitória da Conquista{% endblock %}
+
+{% block meta_description %}Landing Page da comunidade Python de Vitória da Conquista. Busque perfis do GitHub e explore o poder do FastAPI.{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', path='/css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="logo">🐍</div>
+    <h1>Bem-vindo ao GruPy VCA!</h1>
+    <p class="subtitle">Comunidade Python de Vitória da Conquista</p>
+    <p class="description">
+        Uma landing page moderna desenvolvida com FastAPI. 
+        Explore o poder do Python para criar aplicações web rápidas e eficientes.
+    </p>
+
+    <div class="features">
+        <div class="feature">
+            <h3>⚡ Rápido</h3>
+            <p>FastAPI oferece alto desempenho, comparable ao NodeJS e Go</p>
+        </div>
+        <div class="feature">
+            <h3>📝 Intuitivo</h3>
+            <p>Documentação automática e validação de dados integrada</p>
+        </div>
+        <div class="feature">
+            <h3>🚀 Moderno</h3>
+            <p>Baseado em padrões modernos como OpenAPI e JSON Schema</p>
+        </div>
+    </div>
+
+    <div class="github-search">
+        <h2>Buscar Perfil do GitHub</h2>
+        <form class="search-form" onsubmit="searchGithub(event)">
+            <input 
+                type="text" 
+                id="username" 
+                placeholder="Digite um username do GitHub..." 
+                required
+                class="search-input"
+            />
+            <button type="submit" class="search-button">🔍 Buscar</button>
+        </form>
+    </div>
+
+    <a href="/docs" class="cta-button btn btn-primary">Explorar API Docs</a>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', path='/js/index.js') }}"></script>
+{% endblock %}

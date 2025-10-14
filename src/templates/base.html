@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}Landing Page GruPy VCA - Comunidade Python de Vitória da Conquista{% endblock %}">
+    <meta name="keywords" content="Python, GruPy, FastAPI, Comunidade Python, Vitória da Conquista">
+    <meta name="author" content="GruPy VCA">
+    
+    <title>{% block title %}GruPy VCA{% endblock %}</title>
+    
+    <!-- CSS Base -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/base.css') }}">
+    
+    <!-- CSS específico de cada página -->
+    {% block extra_css %}{% endblock %}
+    
+    <!-- Favicon (opcional) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
+</head>
+<body>
+    {% block content %}{% endblock %}
+    
+    <!-- Scripts -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

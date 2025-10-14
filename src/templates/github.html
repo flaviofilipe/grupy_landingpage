@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.login }} - Perfil GitHub | GruPy VCA{% endblock %}
+
+{% block meta_description %}Perfil do GitHub de {{ user.name or user.login }}. {% if user.bio %}{{ user.bio }}{% endif %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', path='/css/github.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <img src="{{ user.avatar_url }}" alt="{{ user.login }}" class="avatar">
+        <h1 class="name">{{ user.name or user.login }}</h1>
+        <p class="username">@{{ user.login }}</p>
+        {% if user.bio %}
+        <p class="bio">{{ user.bio }}</p>
+        {% endif %}
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <span class="stat-value">{{ user.public_repos }}</span>
+            <span class="stat-label">Repositórios</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">{{ user.followers }}</span>
+            <span class="stat-label">Seguidores</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">{{ user.following }}</span>
+            <span class="stat-label">Seguindo</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">{{ user.public_gists }}</span>
+            <span class="stat-label">Gists</span>
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="info-grid">
+            {% if user.company %}
+            <div class="info-item">
+                <div class="info-icon">🏢</div>
+                <div class="info-content">
+                    <div class="info-label">Empresa</div>
+                    <div class="info-value">{{ user.company }}</div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if user.location %}
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                    <div class="info-label">Localização</div>
+                    <div class="info-value">{{ user.location }}</div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if user.email %}
+            <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div class="info-content">
+                    <div class="info-label">Email</div>
+                    <div class="info-value"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if user.blog %}
+            <div class="info-item">
+                <div class="info-icon">🌐</div>
+                <div class="info-content">
+                    <div class="info-label">Website</div>
+                    <div class="info-value"><a href="{{ user.blog }}" target="_blank" rel="noopener noreferrer">{{ user.blog }}</a></div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if user.twitter_username %}
+            <div class="info-item">
+                <div class="info-icon">🐦</div>
+                <div class="info-content">
+                    <div class="info-label">Twitter</div>
+                    <div class="info-value"><a href="https://twitter.com/{{ user.twitter_username }}" target="_blank" rel="noopener noreferrer">@{{ user.twitter_username }}</a></div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="info-item">
+                <div class="info-icon">📅</div>
+                <div class="info-content">
+                    <div class="info-label">Membro desde</div>
+                    <div class="info-value">{{ user.created_at[:10] }}</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🔄</div>
+                <div class="info-content">
+                    <div class="info-label">Última atualização</div>
+                    <div class="info-value">{{ user.updated_at[:10] }}</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🆔</div>
+                <div class="info-content">
+                    <div class="info-label">ID GitHub</div>
+                    <div class="info-value">{{ user.id }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="{{ user.html_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            🔗 Ver no GitHub
+        </a>
+        <a href="/" class="btn btn-secondary">
+            🏠 Voltar ao Início
+        </a>
+    </div>
+</div>
+{% endblock %}
