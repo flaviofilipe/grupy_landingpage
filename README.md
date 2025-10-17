@@ -1,4 +1,4 @@
-# Landing Page - GruPii VCA
+# Landing Page - GruPy VCA
 
 <p align="center">
   <img src="docs/img/logo_dark.png" alt="Logo GruPy VCA" width="400">
@@ -129,7 +129,7 @@ libbz2-dev libreadline-dev libsqlite3-dev curl \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 ```
 
-3. **Instalar Python 3.0:**
+3. **Instalar Python 3.12:**
    
    **Opção A - Via apt (Ubuntu 24.04+):**
    ```bash
