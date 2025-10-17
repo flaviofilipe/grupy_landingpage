@@ -1,4 +1,4 @@
-# Landing Page - GruPii VCA
+# Landing Page - GruPy VCA
 
 <p align="center">
   <img src="docs/img/logo_dark.png" alt="Logo GruPy VCA" width="400">
