@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "nome": "Flavio Filipe",
+    "cargo": "Membro",
+    "github": "flaviofilipe",
+    "linkedin": "flaviofilipedev",
+    "instagram": "_flaviofilipe",
+    "foto": "flaviofilipe.png",
+    "bio": "Membro da comunidade GruPy VCA"
+  },
+  {
+    "id": 2,
+    "nome": "Ana Karolina Disigant Reis",
+    "cargo": "Membro",
+    "github": "anadisigant",
+    "linkedin": "karolina-disigant",
+    "instagram": "",
+    "foto": "anakarolina.jpg",
+    "bio": "Membro da comunidade GruPy VCA"
+  },
+  {
+    "id": 3,
+    "nome": "Luara gabrielli Guimarães Araujo",
+    "cargo": "Membro",
+    "github": "askluara",
+    "linkedin": "luaraaraujo",
+    "instagram": "",
+    "foto": "luaragabrielli.jpg",
+    "bio": "Membro da comunidade GruPy VCA"
+    
+  },
+  {
+    "id": 4,
+    "nome": "Nícolas Amaral Vieira Silva",
+    "cargo": "Membro",
+    "github": "niculox",
+    "linkedin": "nícolasamaral",
+    "instagram": "",
+    "foto": "nicolasamaral.jpg",
+    "bio": "Membro da comunidade GruPy VCA"
+  },
+  {
+    "id": 5,
+    "nome": "Felipe Juan Dias Gonçalves",
+    "cargo": "Membro",
+    "github": "felipe-juan",
+    "linkedin": "felipe-juan",
+    "instagram": "",
+    "foto": "felipejuan.jpg",
+    "bio": "Membro da comunidade GruPy VCA"
+  },
+  {
+    "id": 6,
+    "nome": "Jade Carvalho Pereira",
+    "cargo": "Membro",
+    "github": "",
+    "linkedin": "jadecarvalhopereira",
+    "instagram": "jade.carvalhop",
+    "foto": "jadecarvalho.jpg",
+    "bio": "Membro da comunidade GruPy VCA"
+  }
+]
+

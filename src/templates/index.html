@@ -2,53 +2,111 @@
 
 {% block title %}GruPy VCA - Comunidade Python de Vitória da Conquista{% endblock %}
 
-{% block meta_description %}Landing Page da comunidade Python de Vitória da Conquista. Busque perfis do GitHub e explore o poder do FastAPI.{% endblock %}
+{% block meta_description %}Organização sem fins lucrativos dedicada à promoção da linguagem Python e eventos locais de tecnologia em Vitória da Conquista - BA. Fundada em 2024.{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', path='/css/index.css') }}">
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="logo">🐍</div>
-    <h1>Bem-vindo ao GruPy VCA!</h1>
-    <p class="subtitle">Comunidade Python de Vitória da Conquista</p>
-    <p class="description">
-        Uma landing page moderna desenvolvida com FastAPI. 
-        Explore o poder do Python para criar aplicações web rápidas e eficientes.
-    </p>
+<main class="container" role="main">
+    <header class="hero-section">
+        <div class="logo" role="img" aria-label="Logo do GruPy VCA: emoji de cobra Python">🐍</div>
+        <h1 id="main-heading">Bem-vindo ao GruPy VCA!</h1>
+        <p class="subtitle" role="doc-subtitle">Comunidade Python de Vitória da Conquista</p>
+        <p class="description">
+            Somos uma <strong>organização sem fins lucrativos</strong> fundada em 2024, 
+            com o objetivo de promover a linguagem de programação Python e criar 
+            <strong>eventos locais de tecnologia</strong> em Vitória da Conquista - BA.
+            Junte-se a nós para aprender, compartilhar conhecimento e fazer parte de uma 
+            comunidade apaixonada por Python!
+        </p>
+    </header>
 
-    <div class="features">
-        <div class="feature">
-            <h3>⚡ Rápido</h3>
-            <p>FastAPI oferece alto desempenho, comparable ao NodeJS e Go</p>
-        </div>
-        <div class="feature">
-            <h3>📝 Intuitivo</h3>
-            <p>Documentação automática e validação de dados integrada</p>
-        </div>
-        <div class="feature">
-            <h3>🚀 Moderno</h3>
-            <p>Baseado em padrões modernos como OpenAPI e JSON Schema</p>
-        </div>
-    </div>
+    <section class="features" aria-labelledby="features-heading">
+        <h2 id="features-heading" class="visually-hidden">O que oferecemos</h2>
+        
+        <article class="feature" role="article" aria-labelledby="eventos-heading">
+            <div class="feature-icon" role="img" aria-label="Ícone de calendário representando eventos">📅</div>
+            <h3 id="eventos-heading">Eventos</h3>
+            <p>Veja nossa agenda de eventos e acesse os materiais disponíveis</p>
+            <a href="/eventos" class="feature-link" aria-label="Acessar página de eventos da GruPy VCA">
+                Saiba mais <span aria-hidden="true">→</span>
+            </a>
+        </article>
 
-    <div class="github-search">
-        <h2>Buscar Perfil do GitHub</h2>
-        <form class="search-form" onsubmit="searchGithub(event)">
-            <input 
-                type="text" 
-                id="username" 
-                placeholder="Digite um username do GitHub..." 
-                required
-                class="search-input"
-            />
-            <button type="submit" class="search-button">🔍 Buscar</button>
-        </form>
-    </div>
+        <article class="feature" role="article" aria-labelledby="projetos-heading">
+            <div class="feature-icon" role="img" aria-label="Ícone de código representando projetos">💻</div>
+            <h3 id="projetos-heading">Projetos</h3>
+            <p>Veja os projetos desenvolvidos por nossa comunidade</p>
+            <a href="/projetos" class="feature-link" aria-label="Acessar página de projetos da comunidade">
+                Saiba mais <span aria-hidden="true">→</span>
+            </a>
+        </article>
 
-    <a href="/docs" class="cta-button btn btn-primary">Explorar API Docs</a>
-</div>
+        <article class="feature" role="article" aria-labelledby="comunidade-heading">
+            <div class="feature-icon" role="img" aria-label="Ícone de pessoas representando a comunidade">👥</div>
+            <h3 id="comunidade-heading">Comunidade</h3>
+            <p>Conheça nossa comunidade da GruPy-VCA</p>
+            <a href="/comunidades" class="feature-link" aria-label="Conhecer os membros da comunidade GruPy VCA">
+                Saiba mais <span aria-hidden="true">→</span>
+            </a>
+        </article>
+    </section>
+
+    <section class="cta-section" aria-labelledby="cta-heading">
+        <h2 id="cta-heading" class="visually-hidden">Explore nossa API</h2>
+        <a href="/docs" class="cta-button btn btn-primary" aria-label="Explorar documentação interativa da API">
+            Explorar API Docs
+        </a>
+    </section>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-logo" role="img" aria-label="Logo GruPy VCA">
+                <span class="footer-snake">🐍</span>
+                <span class="footer-title">GruPy VCA</span>
+            </div>
+            
+            <div class="footer-description">
+                <p>
+                    Comunidade Python de Vitória da Conquista - Bahia<br>
+                    Promovendo conhecimento e conexões através da tecnologia
+                </p>
+            </div>
+
+            <nav class="footer-links" aria-label="Links úteis da comunidade">
+                <h3 class="footer-section-title">Conecte-se</h3>
+                <ul role="list">
+                    <li><a href="https://github.com/flaviofilipe/grupy_landingpage" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso repositório no GitHub (abre em nova aba)">GitHub</a></li>
+                    <li><a href="/eventos" aria-label="Veja nossa agenda de eventos">Eventos</a></li>
+                    <li><a href="/projetos" aria-label="Conheça nossos projetos">Projetos</a></li>
+                    <li><a href="/comunidade" aria-label="Conheça a comunidade">Comunidade</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-divider" role="separator" aria-hidden="true"></div>
+
+            <div class="footer-copyright">
+                <p>
+                    <small>
+                        &copy; 2024 <strong>GruPy VCA</strong> - Grupo de Usuários Python de Vitória da Conquista<br>
+                        Organização sem fins lucrativos. Todo o conteúdo está disponível sob 
+                        <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" aria-label="Licença MIT (abre em nova aba)">Licença MIT</a>.<br>
+                        Desenvolvido com <span aria-label="amor">💚</span> pela comunidade Python da Bahia.
+                    </small>
+                </p>
+                <p class="footer-tech">
+                    <small>
+                        Construído com <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer" aria-label="FastAPI framework (abre em nova aba)">FastAPI</a>, 
+                        <a href="https://jinja.palletsprojects.com/" target="_blank" rel="noopener noreferrer" aria-label="Jinja2 template engine (abre em nova aba)">Jinja2</a> e 
+                        <a href="https://www.uvicorn.org/" target="_blank" rel="noopener noreferrer" aria-label="Uvicorn servidor ASGI (abre em nova aba)">Uvicorn</a>
+                    </small>
+                </p>
+            </div>
+        </div>
+    </footer>
+</main>
 {% endblock %}
 
 {% block extra_js %}

@@ -1,0 +1,470 @@
+/* Estilos da página de Comunidade */
+
+/* Reset do body para ter fundo branco */
+body {
+    background: #f5f7fa !important;
+    display: block !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+    padding: 0 !important;
+    min-height: 100vh;
+}
+
+/* Classe de acessibilidade */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Container principal */
+.comunidade-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #f5f7fa;
+    min-height: 100vh;
+}
+
+/* Link Voltar */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.back-link:hover,
+.back-link:focus {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateX(-5px);
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Header da Página */
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.header-description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.header-description strong {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Seção de Membros */
+.members-section {
+    margin-bottom: 80px;
+}
+
+/* Grid de Membros */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Card do Membro */
+.member-card {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+}
+
+.member-card:focus-within {
+    outline: 3px solid #667eea;
+    outline-offset: 3px;
+}
+
+.member-card-inner {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Foto do Membro */
+.member-photo-wrapper {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.member-card:hover .member-photo {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Informações do Membro */
+.member-info {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.member-name {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.member-role {
+    font-size: 1rem;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.member-bio {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+/* Links Sociais */
+.member-social {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.member-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.member-social li {
+    display: inline-block;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.social-label {
+    font-size: 0.85rem;
+}
+
+/* GitHub Link */
+.github-link {
+    color: #333;
+    background: #f6f8fa;
+    border-color: #d0d7de;
+}
+
+.github-link:hover,
+.github-link:focus {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+    transform: translateY(-2px);
+    outline: 2px solid #333;
+    outline-offset: 2px;
+}
+
+/* LinkedIn Link */
+.linkedin-link {
+    color: #0077b5;
+    background: #e7f3fa;
+    border-color: #b3d9f0;
+}
+
+.linkedin-link:hover,
+.linkedin-link:focus {
+    background: #0077b5;
+    color: #fff;
+    border-color: #0077b5;
+    transform: translateY(-2px);
+    outline: 2px solid #0077b5;
+    outline-offset: 2px;
+}
+
+/* Instagram Link */
+.instagram-link {
+    color: #E4405F;
+    background: #fce8ec;
+    border-color: #f8b9c7;
+}
+
+.instagram-link:hover,
+.instagram-link:focus {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #fff;
+    border-color: #E4405F;
+    transform: translateY(-2px);
+    outline: 2px solid #E4405F;
+    outline-offset: 2px;
+}
+
+/* Botão Ver Perfil */
+.btn-view-profile {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 250px;
+}
+
+.btn-view-profile:hover,
+.btn-view-profile:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    outline: 3px solid #667eea;
+    outline-offset: 3px;
+}
+
+/* CTA Join Section */
+.cta-join {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-join h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.cta-join p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Botão Voltar ao Topo */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover,
+.back-to-top:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    outline: 3px solid #667eea;
+    outline-offset: 3px;
+}
+
+.back-to-top-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .comunidade-container {
+        padding: 30px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-description {
+        font-size: 1rem;
+    }
+
+    .header-icon {
+        font-size: 3rem;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .member-photo-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .member-name {
+        font-size: 1.3rem;
+    }
+
+    .cta-join {
+        padding: 40px 25px;
+    }
+
+    .cta-join h2 {
+        font-size: 1.6rem;
+    }
+
+    .cta-join p {
+        font-size: 1rem;
+    }
+
+    .back-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.2rem;
+    }
+
+    .back-to-top-text {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-social ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Modo de alto contraste para acessibilidade */
+@media (prefers-contrast: high) {
+    .member-card {
+        border: 3px solid #000;
+    }
+
+    .social-link {
+        border: 2px solid currentColor;
+    }
+
+    .btn-view-profile,
+    .back-to-top {
+        outline: 2px solid #000;
+    }
+}
+
+/* Redução de movimento para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .header-icon {
+        animation: none;
+    }
+}
+

@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags para descrição e SEO -->
     <meta name="description" content="{% block meta_description %}Landing Page GruPy VCA - Comunidade Python de Vitória da Conquista{% endblock %}">
     <meta name="keywords" content="Python, GruPy, FastAPI, Comunidade Python, Vitória da Conquista">
     <meta name="author" content="GruPy VCA">
+    
+    <!-- Meta tags para acessibilidade e UX -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="color-scheme" content="light">
+    
+    <!-- Meta tags Open Graph (para redes sociais) -->
+    <meta property="og:title" content="{% block og_title %}GruPy VCA - Comunidade Python{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Comunidade Python de Vitória da Conquista - BA{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
     
     <title>{% block title %}GruPy VCA{% endblock %}</title>
     
@@ -15,11 +27,38 @@
     <!-- CSS específico de cada página -->
     {% block extra_css %}{% endblock %}
     
-    <!-- Favicon (opcional) -->
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
+    
+    <!-- Pular para o conteúdo principal (acessibilidade) -->
+    <style>
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 0 0 8px 0;
+            font-weight: 600;
+            z-index: 9999;
+            transition: top 0.3s;
+        }
+        .skip-to-content:focus {
+            top: 0;
+            outline: 3px solid #764ba2;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <!-- Link "Pular para o conteúdo" para leitores de tela -->
+    <a href="#main-content" class="skip-to-content">Pular para o conteúdo principal</a>
+    
+    <div id="main-content">
+        {% block content %}{% endblock %}
+    </div>
     
     <!-- Scripts -->
     {% block extra_js %}{% endblock %}

@@ -4,6 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 import httpx
+import json
 
 app = FastAPI()
 
@@ -19,6 +20,55 @@ app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="stat
 async def index(request: Request):
     """Rota principal que retorna o template index.html"""
     return templates.TemplateResponse("index.html", {"request": request})
+
+
+@app.get("/comunidade", response_class=HTMLResponse)
+async def comunidade(request: Request):
+    """Rota que exibe os membros da comunidade"""
+    try:
+        # Carregar dados dos participantes do arquivo JSON
+        json_path = BASE_DIR / "data" / "participantes.json"
+        with open(json_path, "r", encoding="utf-8") as file:
+            membros = json.load(file)
+        
+        return templates.TemplateResponse(
+            "comunidade.html",
+            {"request": request, "membros": membros}
+        )
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="Arquivo de participantes não encontrado")
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=500, detail="Erro ao decodificar arquivo JSON")
+
+
+@app.get("/eventos", response_class=HTMLResponse)
+async def eventos(request: Request):
+    """Rota para a página de eventos (em desenvolvimento)"""
+    return templates.TemplateResponse(
+        "em-desenvolvimento.html",
+        {
+            "request": request,
+            "titulo": "Eventos",
+            "icone": "📅",
+            "icone_label": "calendário representando eventos",
+            "descricao": "toda a programação de eventos, meetups, workshops e palestras da comunidade"
+        }
+    )
+
+
+@app.get("/projetos", response_class=HTMLResponse)
+async def projetos(request: Request):
+    """Rota para a página de projetos (em desenvolvimento)"""
+    return templates.TemplateResponse(
+        "em-desenvolvimento.html",
+        {
+            "request": request,
+            "titulo": "Projetos",
+            "icone": "💻",
+            "icone_label": "computador representando projetos",
+            "descricao": "todos os projetos open source desenvolvidos pelos membros da nossa comunidade"
+        }
+    )
 
 
 @app.get("/github/{username}", response_class=HTMLResponse)

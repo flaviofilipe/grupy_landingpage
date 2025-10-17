@@ -9,40 +9,47 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="header">
-        <img src="{{ user.avatar_url }}" alt="{{ user.login }}" class="avatar">
-        <h1 class="name">{{ user.name or user.login }}</h1>
-        <p class="username">@{{ user.login }}</p>
+<main class="container" role="main">
+    <header class="header">
+        <img 
+            src="{{ user.avatar_url }}" 
+            alt="Foto de perfil de {{ user.name or user.login }} no GitHub" 
+            class="avatar"
+            loading="lazy"
+        >
+        <h1 id="user-name" class="name">{{ user.name or user.login }}</h1>
+        <p class="username" role="doc-subtitle">@{{ user.login }}</p>
         {% if user.bio %}
         <p class="bio">{{ user.bio }}</p>
         {% endif %}
-    </div>
+    </header>
 
-    <div class="stats">
-        <div class="stat">
-            <span class="stat-value">{{ user.public_repos }}</span>
-            <span class="stat-label">Repositórios</span>
+    <section class="stats" aria-labelledby="stats-heading">
+        <h2 id="stats-heading" class="visually-hidden">Estatísticas do GitHub</h2>
+        <div class="stat" role="group" aria-labelledby="repos-label">
+            <span class="stat-value" aria-label="{{ user.public_repos }} repositórios públicos">{{ user.public_repos }}</span>
+            <span id="repos-label" class="stat-label">Repositórios</span>
         </div>
-        <div class="stat">
-            <span class="stat-value">{{ user.followers }}</span>
-            <span class="stat-label">Seguidores</span>
+        <div class="stat" role="group" aria-labelledby="followers-label">
+            <span class="stat-value" aria-label="{{ user.followers }} seguidores">{{ user.followers }}</span>
+            <span id="followers-label" class="stat-label">Seguidores</span>
         </div>
-        <div class="stat">
-            <span class="stat-value">{{ user.following }}</span>
-            <span class="stat-label">Seguindo</span>
+        <div class="stat" role="group" aria-labelledby="following-label">
+            <span class="stat-value" aria-label="Seguindo {{ user.following }} pessoas">{{ user.following }}</span>
+            <span id="following-label" class="stat-label">Seguindo</span>
         </div>
-        <div class="stat">
-            <span class="stat-value">{{ user.public_gists }}</span>
-            <span class="stat-label">Gists</span>
+        <div class="stat" role="group" aria-labelledby="gists-label">
+            <span class="stat-value" aria-label="{{ user.public_gists }} gists públicos">{{ user.public_gists }}</span>
+            <span id="gists-label" class="stat-label">Gists</span>
         </div>
-    </div>
+    </section>
 
-    <div class="info">
+    <section class="info" aria-labelledby="info-heading">
+        <h2 id="info-heading" class="visually-hidden">Informações do perfil</h2>
         <div class="info-grid">
             {% if user.company %}
             <div class="info-item">
-                <div class="info-icon">🏢</div>
+                <div class="info-icon" role="img" aria-label="Ícone de empresa">🏢</div>
                 <div class="info-content">
                     <div class="info-label">Empresa</div>
                     <div class="info-value">{{ user.company }}</div>
@@ -52,7 +59,7 @@
 
             {% if user.location %}
             <div class="info-item">
-                <div class="info-icon">📍</div>
+                <div class="info-icon" role="img" aria-label="Ícone de localização">📍</div>
                 <div class="info-content">
                     <div class="info-label">Localização</div>
                     <div class="info-value">{{ user.location }}</div>
@@ -62,67 +69,118 @@
 
             {% if user.email %}
             <div class="info-item">
-                <div class="info-icon">📧</div>
+                <div class="info-icon" role="img" aria-label="Ícone de email">📧</div>
                 <div class="info-content">
                     <div class="info-label">Email</div>
-                    <div class="info-value"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
+                    <div class="info-value">
+                        <a href="mailto:{{ user.email }}" aria-label="Enviar email para {{ user.email }}">
+                            {{ user.email }}
+                        </a>
+                    </div>
                 </div>
             </div>
             {% endif %}
 
             {% if user.blog %}
             <div class="info-item">
-                <div class="info-icon">🌐</div>
+                <div class="info-icon" role="img" aria-label="Ícone de website">🌐</div>
                 <div class="info-content">
                     <div class="info-label">Website</div>
-                    <div class="info-value"><a href="{{ user.blog }}" target="_blank" rel="noopener noreferrer">{{ user.blog }}</a></div>
+                    <div class="info-value">
+                        <a 
+                            href="{{ user.blog }}" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Visitar website {{ user.blog }} (abre em nova aba)"
+                        >
+                            {{ user.blog }}
+                        </a>
+                    </div>
                 </div>
             </div>
             {% endif %}
 
             {% if user.twitter_username %}
             <div class="info-item">
-                <div class="info-icon">🐦</div>
+                <div class="info-icon" role="img" aria-label="Ícone do Twitter">🐦</div>
                 <div class="info-content">
                     <div class="info-label">Twitter</div>
-                    <div class="info-value"><a href="https://twitter.com/{{ user.twitter_username }}" target="_blank" rel="noopener noreferrer">@{{ user.twitter_username }}</a></div>
+                    <div class="info-value">
+                        <a 
+                            href="https://twitter.com/{{ user.twitter_username }}" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Visitar perfil do Twitter @{{ user.twitter_username }} (abre em nova aba)"
+                        >
+                            @{{ user.twitter_username }}
+                        </a>
+                    </div>
                 </div>
             </div>
             {% endif %}
 
             <div class="info-item">
-                <div class="info-icon">📅</div>
+                <div class="info-icon" role="img" aria-label="Ícone de calendário">📅</div>
                 <div class="info-content">
                     <div class="info-label">Membro desde</div>
-                    <div class="info-value">{{ user.created_at[:10] }}</div>
+                    <div class="info-value">
+                        <time datetime="{{ user.created_at[:10] }}">{{ user.created_at[:10] }}</time>
+                    </div>
                 </div>
             </div>
 
             <div class="info-item">
-                <div class="info-icon">🔄</div>
+                <div class="info-icon" role="img" aria-label="Ícone de atualização">🔄</div>
                 <div class="info-content">
                     <div class="info-label">Última atualização</div>
-                    <div class="info-value">{{ user.updated_at[:10] }}</div>
+                    <div class="info-value">
+                        <time datetime="{{ user.updated_at[:10] }}">{{ user.updated_at[:10] }}</time>
+                    </div>
                 </div>
             </div>
 
             <div class="info-item">
-                <div class="info-icon">🆔</div>
+                <div class="info-icon" role="img" aria-label="Ícone de identificação">🆔</div>
                 <div class="info-content">
                     <div class="info-label">ID GitHub</div>
                     <div class="info-value">{{ user.id }}</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="actions">
-        <a href="{{ user.html_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            🔗 Ver no GitHub
+    <nav class="actions" aria-label="Ações disponíveis">
+        <a 
+            href="{{ user.html_url }}" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn-primary"
+            aria-label="Ver perfil completo de {{ user.login }} no GitHub (abre em nova aba)"
+        >
+            <span aria-hidden="true">🔗</span> Ver no GitHub
         </a>
-        <a href="/" class="btn btn-secondary">
-            🏠 Voltar ao Início
+        <a 
+            href="/" 
+            class="btn btn-secondary"
+            aria-label="Voltar para página inicial da GruPy VCA"
+        >
+            <span aria-hidden="true">🏠</span> Voltar ao Início
         </a>
-    </div>
-</div>
+    </nav>
+</main>
+
+<!-- Classe para acessibilidade -->
+<style>
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+</style>
 {% endblock %}
